@@ -1,16 +1,16 @@
-let button;
-let message;
-
-function setup() {
-  noCanvas();
-
-  button = createButton("Click Me");
-  message = createP("Nothing happened yet");
-
-  button.mousePressed(changeStuff);
+function subtract(a, b, c, d) {
+  return a - b - c - d;
 }
 
-function changeStuff() {
-  message.html("I LOVE MY DOG");
-  document.body.style.backgroundColor = "lightpink";
+let result;
+
+function setup() {
+  createCanvas(400, 200);
+  result = subtract(20, 3, 4, 1);
+}
+
+function draw() {
+  background(220);
+  textSize(20);
+  text("The result is " + result, 50, 100);
 }
