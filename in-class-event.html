@@ -2,19 +2,39 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Button Test</title>
+  <title>Event Example</title>
+  <style>
+    body { font-family: sans-serif; padding: 24px; }
+    button { font-size: 16px; padding: 10px 14px; cursor: pointer; }
+    .status { margin-top: 12px; }
+  </style>
 </head>
 <body>
 
   <button id="thisButton">Click Me</button>
-  <p id="message">Nothing happened yet</p>
+  <p id="message" class="status">Nothing happened yet.</p>
+  <p id="count" class="status">Clicked 0 times.</p>
 
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const button = document.getElementById('thisButton');
-      
+      const message = document.getElementById('message');
+      const countDisplay = document.getElementById('count');
+      let clickCount = 0;
+
       button.addEventListener('click', function() {
-        document.getElementById('message').innerText = "button was clicked!";
+        clickCount += 1;
+        message.innerText = 'Button was clicked!';
+        countDisplay.innerText = 'Clicked ' + clickCount + ' time' + (clickCount === 1 ? '' : 's') + '.';
+        button.style.backgroundColor = clickCount % 2 === 0 ? '#8ecae6' : '#ffb703';
+      });
+
+      button.addEventListener('mouseenter', function() {
+        message.innerText = 'Ready to click the button.';
+      });
+
+      button.addEventListener('mouseleave', function() {
+        message.innerText = 'Move back over the button to continue.';
       });
     });
   </script>

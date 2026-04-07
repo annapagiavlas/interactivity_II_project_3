@@ -3,9 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <title>Subtract Example</title>
-
-  <!-- Link p5.js -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+  <style>
+    body { margin: 0; font-family: sans-serif; }
+  </style>
 </head>
 <body>
 
@@ -15,16 +16,32 @@ function subtract(a, b, c, d) {
 }
 
 let result;
+let values;
 
 function setup() {
   createCanvas(400, 200);
-  result = subtract(20, 3, 4, 1);
+  values = [20, 3, 4, 1];
+  result = subtract(...values);
+  textAlign(LEFT, CENTER);
+  textSize(18);
 }
 
 function draw() {
-  background(220);
-  textSize(20);
-  text("The result is " + result, 50, 100);
+  background(240);
+  fill(30);
+  text('Press the canvas to subtract new values.', 20, 40);
+  text('Current values: ' + values.join(', '), 20, 80);
+  text('Result: ' + result, 20, 120);
+}
+
+function mousePressed() {
+  values = [
+    floor(random(5, 30)),
+    floor(random(1, 10)),
+    floor(random(1, 10)),
+    floor(random(1, 5))
+  ];
+  result = subtract(...values);
 }
 </script>
 
