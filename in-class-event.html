@@ -1,8 +1,23 @@
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-  const button = document.getElementById('thisButton');
-  button.addEventListener('click', function(){
-    document.getElementById('message').innerText = "button was clicked!";
-  });
-});
-</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Button Test</title>
+</head>
+<body>
+
+  <button id="thisButton">Click Me</button>
+  <p id="message">Nothing happened yet</p>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const button = document.getElementById('thisButton');
+      
+      button.addEventListener('click', function() {
+        document.getElementById('message').innerText = "button was clicked!";
+      });
+    });
+  </script>
+
+</body>
+</html>

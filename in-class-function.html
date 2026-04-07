@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Subtract Example</title>
+
+  <!-- Link p5.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+</head>
+<body>
+
+<script>
+function subtract(a, b, c, d) {
+  return a - b - c - d;
+}
+
+let result;
+
+function setup() {
+  createCanvas(400, 200);
+  result = subtract(20, 3, 4, 1);
+}
+
+function draw() {
+  background(220);
+  textSize(20);
+  text("The result is " + result, 50, 100);
+}
+</script>
+
+</body>
+</html>
